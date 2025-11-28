@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<head>
+    <title>Simple Login</title>
+    
+    <style>
+  
+        :root {
+            --primary-color: #007bff; /* Blue for action/buttons */
+            --bg-color: #f8f9fa;      /* Light gray page background */
+            --box-bg: #ffffff;        /* White box background */
+            --border-color: #ced4da;
+            --text-color: #343a40;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?fit=crop&w=1920&q=80');
+        }
+      
+
+        .login-box {
+            width: 300px;
+            padding: 25px;
+            background: var(--box-bg);
+            border-radius: 8px; /* Slightly rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            text-align: center;
+        }
+
+        .login-box h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .input-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+        
+        .input-group input:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 10px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.2s;
+        }
+
+        .login-button:hover {
+            background-color: #0056b3; /* Slightly darker on hover */
+        }
+
+        .signup-link a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+        
+        .signup-link {
+            margin-top: 15px;
+            color: var(--text-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-box">
+        <h2>Musicbox Login</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="u">Username</label>
+                <input type="text" id="u" required>
+            </div>
+            <div class="input-group">
+                <label for="p">Password</label>
+                <input type="password" id="p" required>
+            </div>
+            <button type="submit" class="login-button">Log In</button>
+            <div class="signup-link">
+                <a href="#">Forgot Password?</a> | <a href="#">Sign Up</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // --- JavaScript Functionality (Redirect) ---
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('loginForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const u = document.getElementById('u').value;
+                const p = document.getElementById('p').value;
+                const dest = 'dashboard.html'; // Destination file
+
+                if (u && p) {
+                    console.log("Login Success for:", u);
+                    alert(`Welcome ${u}! Redirecting...`);
+                    window.location.href='file:///C:/Users/MADHANIKA/Downloads/html/musicbox.html';
+                } else {
+                    alert("Please fill out both fields.");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
